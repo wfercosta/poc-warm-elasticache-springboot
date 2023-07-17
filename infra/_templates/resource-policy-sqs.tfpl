@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "${service}"
+      },
+      "Action": [
+        "sqs:SendMessage"
+      ],
+      "Resource": [
+        "${sqs_arn}"
+      ],
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": "${source_arn}"
+        }
+      }
+    }
+  ]
+}
